@@ -8,16 +8,16 @@ DROP TABLE IF EXISTS time;
 -- Criar a tabela time
 CREATE TABLE time(
 	id serial PRIMARY KEY,
-    nome varchar(50)
+	nome varchar(50)
 );
 
 -- Criar a tabela jogador
 CREATE TABLE jogador(
-    id serial PRIMARY KEY,
-    nome varchar(70),
-    posicao varchar(15),
-    id_time integer,
-    CONSTRAINT jogador_time_fk FOREIGN KEY (id_time) REFERENCES time(id) ON DELETE set null
+	id serial PRIMARY KEY,
+	nome varchar(70),
+	posicao varchar(15),
+	id_time integer,
+	CONSTRAINT jogador_time_fk FOREIGN KEY (id_time) REFERENCES time(id) ON DELETE set null
 );
 
 -- Criar a tabela tecnico
@@ -37,18 +37,18 @@ CREATE TABLE estadio(
 -- Criar a tabela partida
 CREATE TABLE partida (
 	id serial PRIMARY KEY,
-    inicio varchar(8),
-    sumula varchar(1000),
+	inicio varchar(8),
+	sumula varchar(1000),
   	id_estadio integer,
   	id_tecnico_time_um integer,
   	id_tecnico_time_dois integer,
   	id_time_um integer,
   	id_time_dois integer,
-    CONSTRAINT partida_estadio_fk FOREIGN KEY (id_estadio) REFERENCES estadio(id),
-    CONSTRAINT partida_tecnico_time_um_fk FOREIGN KEY (id_tecnico_time_um) REFERENCES tecnico(id),
-  	CONSTRAINT partida_tecnico_time_dois_fk FOREIGN KEY (id_tecnico_time_dois) REFERENCES tecnico(id),
-    CONSTRAINT partida_time_um_fk FOREIGN KEY (id_time_um) REFERENCES time(id),
-  	CONSTRAINT partida_time_dois_fk FOREIGN KEY (id_time_dois) REFERENCES time(id)
+	CONSTRAINT partida_estadio_fk FOREIGN KEY (id_estadio) REFERENCES estadio(id),
+	CONSTRAINT partida_tecnico_time_um_fk FOREIGN KEY (id_tecnico_time_um) REFERENCES tecnico(id),
+	CONSTRAINT partida_tecnico_time_dois_fk FOREIGN KEY (id_tecnico_time_dois) REFERENCES tecnico(id),
+	CONSTRAINT partida_time_um_fk FOREIGN KEY (id_time_um) REFERENCES time(id),
+	CONSTRAINT partida_time_dois_fk FOREIGN KEY (id_time_dois) REFERENCES time(id)
 );
 
 -- Inserir times
