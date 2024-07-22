@@ -1,10 +1,3 @@
--- Dropar tabelas caso existam
-DROP TABLE IF EXISTS partida;
-DROP TABLE IF EXISTS jogador;
-DROP TABLE IF EXISTS tecnico;
-DROP TABLE IF EXISTS estadio;
-DROP TABLE IF EXISTS time;
-
 -- Criar a tabela time
 CREATE TABLE time(
 	id serial PRIMARY KEY,
@@ -29,9 +22,9 @@ CREATE TABLE tecnico(
 );
 
 -- Criar a tabela estadio
-CREATE TABLE estadio(
+CREATE TABLE estadio (
 	id serial PRIMARY KEY,
-  	nome varchar(50),
+  	nome varchar(50)
 );
 
 -- Criar a tabela partida
@@ -51,6 +44,24 @@ CREATE TABLE partida (
 	CONSTRAINT partida_time_dois_fk FOREIGN KEY (id_time_dois) REFERENCES time(id)
 );
 
+CREATE TABLE participacao (
+	id serial PRIMARY KEY,
+    gol integer,
+    defesa integer,
+    inicio varchar(8),
+    id_participacao_jogador integer,
+    id_participacao_partida integer,
+    CONSTRAINT participacao_jogador_fk FOREIGN KEY (id_participacao_jogador) REFERENCES jogador(id),
+    CONSTRAINT participacao_partida_fk FOREIGN KEY (id_participacao_partida) REFERENCES partida(id)    
+);
+
+CREATE TABLE arbitro (
+	id serial PRIMARY KEY,
+  	papel varchar(50),
+  	id_arbitro_partida integer,
+  	CONSTRAINT arbitro_partida_fk FOREIGN KEY (id_arbitro_partida) REFERENCES partida(id)
+);
+
 -- Inserir times
 INSERT INTO time(nome) values ('Vasco');
 INSERT INTO time(nome) values ('Flamengo');
@@ -67,4 +78,10 @@ INSERT INTO tecnico(nome, id_time) values ('Pedroca', 2);
 INSERT INTO estadio(nome) values ('Maracanã');
 
 -- Inserir partidas
-INSERT INTO partida(inicio, sumula, id_estadio, id_tecnico_time_um, id_tecnico_time_dois, id_time_um, id_time_dois) values ('12:00:00', 'Jogão da porra, terminou 3x0 pro time da casa.', 1, 1, 2, 1, 2)
+INSERT INTO partida(inicio, sumula, id_estadio, id_tecnico_time_um, id_tecnico_time_dois, id_time_um, id_time_dois) values ('12:00:00', 'Jogão da porra, terminou 3x0 pro time da casa. Roberto Dinamite carregou essa partida nas costas!', 1, 1, 2, 1, 2);
+
+-- Inserir participação
+INSERT INTO participacao(gol, defesa, inicio, id_participacao_jogador, id_participacao_partida) values (3, 0, '12:30:00', 1, 1);
+
+-- Inserir arbitro
+INSERT INTO arbitro(papel, id_arbitro_partida) values ('Cartão amarelo para o camisa 9.', 1);
