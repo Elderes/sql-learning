@@ -43,5 +43,5 @@ INSERT INTO receita(receita, id_receita_paciente) values ('3 copos de leite. Bis
 INSERT INTO receita(receita, id_receita_paciente) values ('Melhorar alimentação. Fazer exercícios.', 3);
 
 INSERT INTO consulta(data, id_consulta_profissional, id_consulta_receita, id_consulta_paciente) values ('2024-07-30', 1, 1, 1);
-INSERT INTO consulta(data, id_consulta_profissional, id_consulta_receita, id_consulta_paciente) values ('2024-08-03', 2, 2, 2);
+INSERT INTO consulta(data, id_consulta_profissional, id_consulta_receita, id_consulta_paciente) values ('2024-07-30', 2, 2, 2);
 INSERT INTO consulta(data, id_consulta_profissional, id_consulta_receita, id_consulta_paciente) values ('2024-07-30', 3, 3, 3);
