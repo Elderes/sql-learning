@@ -66,3 +66,13 @@ INSERT INTO servico(tipo, id_servico_evento) values ('Maquiagem da noiva', 2)
 INSERT INTO servico(tipo, id_servico_evento) values ('Enfeitos cor de rosa e cor azul', 3)
 INSERT INTO servico(tipo, id_servico_evento) values ('Balão com tinta rosa (não deixe o cliente saber)', 3)
 
+INSERT INTO funcionario(nome, id_funcionario_evento) values ('Angela', 1)
+INSERT INTO funcionario(nome, id_funcionario_evento) values ('Antonio', 1)
+INSERT INTO funcionario(nome, id_funcionario_evento) values ('Daniel', 2)
+INSERT INTO funcionario(nome, id_funcionario_evento) values ('Pamela', 2)
+INSERT INTO funcionario(nome, id_funcionario_evento) values ('Rogério', 3)
+INSERT INTO funcionario(nome, id_funcionario_evento) values ('Davi', 3)
+
+INSERT INTO local(nome, capacidade, id_local_evento) values ('Salão de Festas Municipal', 250, 1)
+INSERT INTO local(nome, capacidade, id_local_evento) values ('Restaurante Coffe, Campina Grande', 50, 2)
+INSERT INTO local(nome, capacidade, id_local_evento) values ('Churrascaria do Pedrão', 100, 3)
